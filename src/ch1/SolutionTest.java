@@ -18,6 +18,22 @@ public class SolutionTest {
         final int[] nums = {2,7,11,15};
         final int target = 9;
         int[] result = new Solution().twoSum(nums, target);
-        Assert.assertEquals(Arrays.toString(result),Arrays.toString(new int[]{0,1}));
+        Assert.assertEquals(Arrays.toString(new int[]{0,1}),Arrays.toString(result));
+    }
+
+    @Test
+    public void twoSum2() {
+        final int[] nums = {2,7,11,15};
+        final int target = 9;
+        int[] result = new Solution().twoSum2(nums, target);
+        Assert.assertEquals(Arrays.toString(new int[]{0,1}),Arrays.toString(result));
+    }
+
+    @Test
+    public void twoSum3() {
+        final int[] nums = {2,7,11,15};
+        final int target = 9;
+        int[] result = new Solution().twoSum3(nums, target);
+        Assert.assertEquals(Arrays.toString(new int[]{0,1}),Arrays.toString(result));
     }
 }
