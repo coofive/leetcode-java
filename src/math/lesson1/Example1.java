@@ -1,0 +1,43 @@
+package math.lesson1;
+
+import java.math.BigInteger;
+
+/**
+ * @author wenwu.liu.o
+ */
+public class Example1 {
+  
+   /**
+ 
+    * @Description: 十进制转换成二进制
+    * @param decimalSource
+    * @return String
+    */
+    public static String decimalToBinary(int decimalSource) {
+       // 转换成 BigInteger 类型，默认是十进制
+       BigInteger bi = new BigInteger(String.valueOf(decimalSource));
+       // 参数 2 指定的是转化成二进制
+       return bi.toString(2);
+    }
+ 
+    /**
+    * @Description: 二进制转换成十进制
+    * @param binarySource
+    * @return int
+    */
+    public static int binaryToDecimal(String binarySource) {
+       // 转换为 BigInteger 类型，参数 2 指定的是二进制
+       BigInteger bi = new BigInteger(binarySource, 2);
+       // 默认转换成十进制
+       return Integer.parseInt(bi.toString());
+    }
+
+    public static void main(String[] args) {
+        int a = 53;
+        String b = "110101";
+        // 获取十进制数 53 的二进制数
+        System.out.println(String.format(" 数字 %d 的二进制是 %s", a, Example1.decimalToBinary(a)));
+        // 获取二进制数 110101 的十进制数
+        System.out.println(String.format(" 数字 %s 的十进制是 %d", b, Example1.binaryToDecimal(b)));
+    }
+}
