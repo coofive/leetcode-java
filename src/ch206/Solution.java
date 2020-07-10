@@ -1,9 +1,6 @@
 package ch206;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import base.ListNode;
 
 /**
  * Definition for singly-linked list.
@@ -31,11 +28,3 @@ public class Solution {
     }
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-}

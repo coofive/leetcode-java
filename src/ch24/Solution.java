@@ -1,5 +1,7 @@
 package ch24;
 
+import base.ListNode;
+
 /**
  * @author : coofive
  * @version : 1.0.0
@@ -28,11 +30,3 @@ public class Solution {
     }
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-}
