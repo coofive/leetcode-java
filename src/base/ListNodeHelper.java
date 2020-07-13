@@ -11,6 +11,7 @@ import java.util.Map;
  * @date : 2020-07-11 06:51
  */
 public class ListNodeHelper {
+    public static Map<Integer, ListNode> cache = new HashMap<>();
 
     public static ListNode generateListNode(int[] arr) {
         ListNode node = null;
@@ -30,7 +31,6 @@ public class ListNodeHelper {
     }
 
     public static ListNode generateCycleListNode(int[] arr, int target, int pos) {
-        Map<Integer, ListNode> cache = new HashMap<>();
         ListNode node = null;
         ListNode temp = null;
         ListNode curr = null;
