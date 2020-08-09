@@ -10,7 +10,7 @@ public class Solution {
         if (digits == null || digits.length == 0) {
             return digits;
         }
-        for (int i = digits.length - 1; i > 0; i--) {
+        for (int i = digits.length - 1; i >= 0; i--) {
             if (digits[i] < 9) {
                 digits[i]++;
                 return digits;

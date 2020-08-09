@@ -22,5 +22,9 @@ public class SolutionTest {
         int[] actual2 = solution.plusOne(nums2);
         Assert.assertEquals(Arrays.toString(expect2), Arrays.toString(actual2));
 
+        int[] nums3 = new int[]{0};
+        int[] expect3 = new int[]{1};
+        int[] actual3 = solution.plusOne(nums3);
+        Assert.assertEquals(Arrays.toString(expect3), Arrays.toString(actual3));
     }
 }
