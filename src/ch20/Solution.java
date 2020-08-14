@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class Solution {
     public boolean isValid(String s) {
-        if (s == null || s.length() == 0) {
+        if (s == null) {
             return false;
         }
         Stack<Character> stack = new Stack<>();

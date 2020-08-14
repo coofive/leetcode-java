@@ -15,5 +15,6 @@ public class SolutionTest {
         Assert.assertFalse(solution.isValid("(]"));
         Assert.assertFalse(solution.isValid("([)]"));
         Assert.assertTrue(solution.isValid("{[]}"));
+        Assert.assertTrue(solution.isValid(""));
     }
 }
