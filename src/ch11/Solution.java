@@ -12,9 +12,7 @@ public class Solution {
         }
         int maxArea = 0;
         for (int left = 0, right = height.length - 1; left < right; ) {
-            int minHeight = height[left] < height[right] ? height[left++] : height[right--];
-            // 不管是left++还是right--,都会使距离缩短1，而要计算当前宽度需要加1
-            int area = (right - left + 1) * minHeight;
+            int area = (right - left) * (height[left] < height[right] ? height[left++] : height[right--]);
             maxArea = Math.max(maxArea, area);
         }
         return maxArea;
