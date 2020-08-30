@@ -16,7 +16,10 @@ public class SolutionTest {
         int[] test2 = new int[]{1};
         Assert.assertEquals(1, solution.largestRectangleArea(test2));
 
-        int[] test3 = new int[]{1,1};
+        int[] test3 = new int[]{1, 1};
         Assert.assertEquals(2, solution.largestRectangleArea(test3));
+
+        int[] test4 = new int[]{4, 2, 0, 3, 2, 4, 3, 4};
+        Assert.assertEquals(10, solution.largestRectangleArea(test4));
     }
 }
