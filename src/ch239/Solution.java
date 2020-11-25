@@ -9,42 +9,47 @@ import java.util.ArrayDeque;
  * @date : 2020-08-29 10:33
  */
 public class Solution {
-    ArrayDeque<Integer> deq = new ArrayDeque<Integer>();
-    int[] nums;
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return new int[0];
+        }
+        if (k == 1) {
+            return nums;
+        }
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        int firstMax = Integer.MIN_VALUE;
+        for (int i = 0; i < k; i++) {
+            cleanDeque(nums, deque, i, k);
+            deque.addLast(i);
+            if (nums[i] > firstMax) {
+                firstMax = nums[i];
+            }
+        }
+        int[] output = new int[nums.length - k + 1];
+        output[0] = firstMax;
 
-    public void clean_deque(int i, int k) {
-        // remove indexes of elements not from sliding window
-        if (!deq.isEmpty() && deq.getFirst() == i - k)
-            deq.removeFirst();
+        for (int i = k; i < nums.length; i++) {
+            cleanDeque(nums, deque, i, k);
+            deque.addLast(i);
+            output[i - k + 1] = nums[deque.getFirst()];
+        }
 
-        // remove from deq indexes of all elements
-        // which are smaller than current element nums[i]
-        while (!deq.isEmpty() && nums[i] > nums[deq.getLast()]) deq.removeLast();
+        return output;
     }
 
-    public int[] maxSlidingWindow(int[] nums, int k) {
-        int n = nums.length;
-        if (n * k == 0) return new int[0];
-        if (k == 1) return nums;
-
-        // init deque and output
-        this.nums = nums;
-        int max_idx = 0;
-        for (int i = 0; i < k; i++) {
-            clean_deque(i, k);
-            deq.addLast(i);
-            // compute max in nums[:k]
-            if (nums[i] > nums[max_idx]) max_idx = i;
+    /**
+     * 清理双向对列
+     * 只保留当前滑动窗口中有的元素的索引。
+     * 移除比当前元素小的所有元素，它们不可能是最大的。
+     */
+    private void cleanDeque(int[] nums, ArrayDeque<Integer> deque, int i, int k) {
+        // 只保留当前滑动窗口中有的元素的索引
+        if (!deque.isEmpty() && deque.getFirst() == i - k) {
+            deque.removeFirst();
         }
-        int[] output = new int[n - k + 1];
-        output[0] = nums[max_idx];
-
-        // build output
-        for (int i = k; i < n; i++) {
-            clean_deque(i, k);
-            deq.addLast(i);
-            output[i - k + 1] = nums[deq.getFirst()];
+        // 移除比当前元素小的所有元素，他们不可能是最大的，循环移除，保证队列中最大的值
+        while (!deque.isEmpty() && nums[i] > deque.getLast()) {
+            deque.removeLast();
         }
-        return output;
     }
 }
