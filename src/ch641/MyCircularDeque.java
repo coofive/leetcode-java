@@ -51,7 +51,7 @@ public class MyCircularDeque {
             return false;
         }
         arr[tail] = value;
-        tail = (tail + 1 + capacity) % capacity;
+        tail = (tail + 1) % capacity;
         return true;
     }
 
@@ -62,7 +62,7 @@ public class MyCircularDeque {
         if (isEmpty()) {
             return false;
         }
-        head = (head + 1 + capacity) % capacity;
+        head = (head + 1) % capacity;
         return true;
     }
 
